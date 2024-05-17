@@ -42,9 +42,9 @@ pipeline {
 
     post {
         always {
-            sh 'echo Inside post logou'
+            sh 'echo Inside post logout'
             sh 'docker logout'
-            //cleanWs()
+            cleanWs()
         }
     }
 }

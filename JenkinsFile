@@ -1,0 +1,48 @@
+pipeline {
+    agent any
+
+    parameters {
+        string(name: 'BRANCH_NAME', defaultValue: 'master', description: 'Branch to build')
+    }
+
+    environment {
+        DOCKER_IMAGE = 'selenium-demo'
+        DOCKER_HUB = credentials('docker-creds')
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: "${params.BRANCH_NAME}", url: 'https://github.com/mayankbandral7/SeleniumDesignPatterns'
+            }
+        }
+
+        stage('Maven clean package'){
+            steps{
+                sh 'mvn clean package -DskipTests'
+            }
+        }
+
+        stage('Build Image') {
+            steps {
+                //sh "docker build -t mayank7bandral/${DOCKER_IMAGE}:${params.BRANCH_NAME} ."
+                script {
+                    docker.build("${DOCKER_HUB_USR}/${DOCKER_IMAGE}:${params.BRANCH_NAME}")
+                }
+            }
+        }
+
+        stage('Push Image'){
+            steps{
+                sh 'echo ${DOCKER_HUB_PSW} | docker login -u ${DOCKER_HUB_USR} --password-stdin'
+                sh "docker push ${DOCKER_HUB_USR}/${DOCKER_IMAGE}:${params.BRANCH_NAME}"
+            }
+        }
+    }
+
+    post {
+        always {
+            cleanWs()
+        }
+    }
+}

@@ -44,7 +44,7 @@ pipeline {
         always {
             sh 'echo Inside post logou'
             sh 'docker logout'
-            cleanWs()
+            //cleanWs()
         }
     }
 }

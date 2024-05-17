@@ -2,8 +2,6 @@ package com.qa.utils;
 
 import org.aeonbits.owner.Config;
 
-import java.util.List;
-
 @Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({"classpath:test.properties", "system:properties"})
 public interface PropertiesUtils extends Config {

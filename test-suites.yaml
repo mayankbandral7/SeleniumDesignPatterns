@@ -1,0 +1,9 @@
+version: '3'
+services:
+  regression:
+    image: mayank7bandral/selenium-demo
+    environment:
+      - BROWSER=chrome
+      - HUB=hub
+      - THREAD_COUNT=4
+      - TEST_SUITE=testng

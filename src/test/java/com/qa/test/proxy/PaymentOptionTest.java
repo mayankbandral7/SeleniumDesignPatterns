@@ -29,7 +29,6 @@ public class PaymentOptionTest extends BaseTest {
         paymentScreen.fillPaymentFields(paymentDetails);
         String orderNumber = paymentScreen.getOrder();
         System.out.println("OrderComponentReal Number :" + orderNumber);
-        System.out.println("Testing VC in images");
     }
 
     @DataProvider

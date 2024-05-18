@@ -1,9 +1,9 @@
 version: '3'
 services:
   regression:
-    image: mayank7bandral/selenium-demo
+    image: mayank7bandral/selenium-demo:${TAG}
     environment:
-      - BROWSER=chrome
+      - BROWSER=${BROWSER}
       - HUB=hub
-      - THREAD_COUNT=4
-      - TEST_SUITE=testng
+      - THREAD_COUNT=${THREAD_COUNT}
+      - TEST_SUITE=${TEST_SUITE}

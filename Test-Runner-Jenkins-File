@@ -1,0 +1,42 @@
+pipeline {
+
+    agent any
+
+    parameters {
+        choice choices: ['1', '2', '3', '4', '5'], description: 'Set how many parallel tests you want', name: 'THREAD_COUNT'
+        string defaultValue: 'master', description: 'Set the Docker Image TAG', name: 'TAG', trim: true
+        choice choices: ['chrome', 'firefox'], name: 'BROWSER'
+        choice choices: ['testng'], name: 'TEST_SUITE'
+        choice choices: ['1', '2', '3'], name: 'SET_CONTAINER'
+    }
+
+    stages {
+
+    // stage('Checkout') {
+    //     steps{
+    //         git branch: "${params.BRANCH_NAME}", url: 'https://github.com/mayankbandral7/SeleniumDesignPatterns'
+    //     }
+    // }
+
+    stage('Start Selenium-Grid'){
+            steps{
+                sh 'docker-compose -f selenium-grid.yaml up --scale ${BROWSER}=${SET_CONTAINER:-1} -d'
+        }
+    }
+
+    stage('Trigger tests'){
+        steps{
+            sh 'BROWSER=${BROWSER} THREADCOUNT=${THREAD_COUNT} TEST_SUITE=${TEST_SUITE} TAG=${TAG} docker-compose -f test-suites.yaml up'
+        }
+    }
+
+    }
+
+    post {
+        always {
+            sh "docker-compose -f selenium-grid.yaml down"
+            sh "docker-compose -f test-suites.yaml down"
+        }
+    }
+
+}

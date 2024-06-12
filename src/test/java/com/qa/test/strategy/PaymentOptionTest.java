@@ -10,8 +10,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.util.List;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 public class PaymentOptionTest extends BaseTest {
 

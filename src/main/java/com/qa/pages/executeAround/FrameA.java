@@ -8,13 +8,13 @@ import java.util.Map;
 public class FrameA {
 
     @FindBy(name = "fn")
-    WebElement firstName;
+    private WebElement firstName;
 
     @FindBy(name = "ln")
-    WebElement lastName;
+    private WebElement lastName;
 
     @FindBy(name = "addr")
-    WebElement addressName;
+    private WebElement addressName;
 
     public void fillUserDetails(Map<String, String> userDetails) {
         firstName.sendKeys(userDetails.get("firstName"));

@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import java.util.Objects;
 
 public class OrderComponentProxy {
-    OrderComponentReal orderComponent;
+    private OrderComponentReal orderComponent;
 
     public OrderComponentProxy(WebDriver driver) {
         System.setProperty("env", "Prod");

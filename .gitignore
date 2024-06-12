@@ -5,6 +5,7 @@ target/
 logs
 allure-report
 .idea
+test-output
 
 ### IntelliJ IDEA ###
 .idea/modules.xml

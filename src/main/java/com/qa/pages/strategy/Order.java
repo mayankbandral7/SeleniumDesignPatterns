@@ -9,10 +9,10 @@ public class Order {
     private final WebDriver driver;
 
     @FindBy(id = "buy")
-    WebElement buy;
+    private WebElement buy;
 
     @FindBy(id = "ordernumber")
-    WebElement orderNumber;
+    private WebElement orderNumber;
 
     public Order(WebDriver driver) {
         this.driver = driver;

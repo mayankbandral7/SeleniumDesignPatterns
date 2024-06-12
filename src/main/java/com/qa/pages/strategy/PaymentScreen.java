@@ -8,18 +8,18 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.Map;
 
 public class PaymentScreen {
-    private WebDriver driver;
-    private Order order;
+    private final WebDriver driver;
+    private final Order order;
     private PaymentOption paymentOption;
 
     @FindBy(id = "fn")
-    WebElement firstName;
+    private WebElement firstName;
 
     @FindBy(id = "ln")
-    WebElement lastName;
+    private WebElement lastName;
 
     @FindBy(id = "email")
-    WebElement email;
+    private WebElement email;
 
 
     public PaymentScreen(final WebDriver driver) {

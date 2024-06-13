@@ -13,13 +13,13 @@ public class PaymentScreen {
     private PaymentOption paymentOption;
 
     @FindBy(id = "fn")
-    WebElement firstName;
+    private WebElement firstName;
 
     @FindBy(id = "ln")
-    WebElement lastName;
+    private WebElement lastName;
 
     @FindBy(id = "email")
-    WebElement email;
+    private WebElement email;
 
 
     public PaymentScreen(final WebDriver driver) {

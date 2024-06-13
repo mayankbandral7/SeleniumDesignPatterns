@@ -23,15 +23,13 @@ public class FireFoxServiceBuilder extends DriverManager {
     @Override
     public void createDriver() {
         try {
-            if (driver == null) {
-                FirefoxDriverService firefoxDriverService = new GeckoDriverService.Builder()
-                        .usingAnyFreePort().withLogLevel(FirefoxDriverLogLevel.DEBUG)
-                        //.withLogFile(new File(fireFoxLogPath.toString()))
-                        .build();
-                FirefoxOptions firefoxOptions = new FirefoxOptions();
-                driver = isGridEnabled ? new RemoteWebDriver(new URL("http://" + hub + ":4444"), firefoxOptions) :
-                        new FirefoxDriver(firefoxDriverService, firefoxOptions.setBrowserVersion("124"));
-            }
+            FirefoxDriverService firefoxDriverService = new GeckoDriverService.Builder()
+                    .usingAnyFreePort().withLogLevel(FirefoxDriverLogLevel.DEBUG)
+                    //.withLogFile(new File(fireFoxLogPath.toString()))
+                    .build();
+            FirefoxOptions firefoxOptions = new FirefoxOptions();
+            driver = isGridEnabled ? new RemoteWebDriver(new URL("http://" + hub + ":4444"), firefoxOptions) :
+                    new FirefoxDriver(firefoxDriverService, firefoxOptions.setBrowserVersion("124"));
         } catch (Exception e) {
             e.printStackTrace();
         }

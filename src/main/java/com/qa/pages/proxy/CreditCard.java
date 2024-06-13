@@ -8,13 +8,13 @@ import java.util.Map;
 public class CreditCard implements PaymentOption {
 
     @FindBy(id = "cc")
-    WebElement creditCard;
+    private WebElement creditCard;
 
     @FindBy(id = "year")
-    WebElement year;
+    private WebElement year;
 
     @FindBy(id = "cvv")
-    WebElement cvv;
+    private WebElement cvv;
 
     @Override
     public void fillPaymentDetails(Map<String, String> cardDetails) {

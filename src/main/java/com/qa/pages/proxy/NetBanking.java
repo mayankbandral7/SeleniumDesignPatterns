@@ -9,13 +9,13 @@ import java.util.Map;
 public class NetBanking implements PaymentOption {
 
     @FindBy(id = "bank")
-    WebElement selectBank;
+    private WebElement selectBank;
 
     @FindBy(id = "acc_number")
-    WebElement accNumber;
+    private WebElement accNumber;
 
     @FindBy(id = "pin")
-    WebElement pinNumber;
+    private WebElement pinNumber;
 
     @Override
     public void fillPaymentDetails(Map<String, String> bankDetails) {

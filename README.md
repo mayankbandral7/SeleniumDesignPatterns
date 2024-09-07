@@ -1,4 +1,4 @@
-Selenium Design Patterns Project
+							Selenium Design Patterns Project
 
 This project is designed to showcase the application of design patterns in test automation, with a focus on enhancing the scalability, maintainability, and readability of automated tests. By implementing proven design patterns, the test framework can handle complex test cases more efficiently and ensure long-term flexibility.
 
